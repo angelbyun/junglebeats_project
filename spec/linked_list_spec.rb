@@ -72,6 +72,21 @@ RSpec.describe LinkedList do
 
         expect(list.to_string).to eq("plop")
     end
+    it "modifies data" do
+        list = LinkedList.new
+        list.append("plop")
+        list.append("suu")
+
+        expect(list.append("suu")).to eq("suu")
+    end
+    it "adds a prepend" do
+        list = LinkedList.new
+        list.append("plop")
+        list.append("suu")
+        list.prepend("dop")
+
+        expect(list.prepend("dop")).to eq("dop")
+    end
 end
 
 
