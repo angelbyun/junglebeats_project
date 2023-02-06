@@ -34,6 +34,7 @@ class LinkedList
         to_string.join(" ")
     end
     def prepend(data)
+        @count += 1
         if @head == nil
             @head = Node.new(data)
         else
