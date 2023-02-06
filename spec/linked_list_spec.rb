@@ -60,6 +60,18 @@ RSpec.describe LinkedList do
 
     expect(list.to_string).to eq("doop deep")
     end
+    it "modifies data" do
+        list = LinkedList.new
+        list.append("plop")
+
+        expect(list.append("plop")).to eq("plop")
+    end
+    it "modifies a list" do
+        list = LinkedList.new
+        list.append("plop")
+
+        expect(list.to_string).to eq("plop")
+    end
 end
 
 
