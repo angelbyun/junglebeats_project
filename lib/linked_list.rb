@@ -34,12 +34,13 @@ class LinkedList
         to_string.join(" ")
     end
     def prepend(data)
-        current_node = @head
         if @head == nil
             @head = Node.new(data)
         else
-            current_node.next_node = Node.new(data)
-            current_node = current_node.next_node
+            # require 'pry'; binding.pry
+            current_head = Node.new(data)
+            current_head.next_node = @head
+            @head = current_head
         end
     end
 end
