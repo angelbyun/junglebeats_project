@@ -5,29 +5,43 @@ require './lib/jungle_beat'
 
 RSpec.describe JungleBeat do
     it "exists" do
-        list = JungleBeat.new
+        jb = JungleBeat.new
     
-    expect(list).to be_instance_of(JungleBeat)
+    expect(jb).to be_instance_of(JungleBeat)
     end
 
     it "has a head" do
-        list = JungleBeat.new
-        list.head
+        jb = JungleBeat.new
+        jb.list.head
 
-        expect(list.head).to eq(nil)
+        expect(jb.list.head).to eq(nil)
     end
 
     it "adds data" do
-        list = JungleBeat.new
-        list.append("deep doo ditt")
+        jb = JungleBeat.new
+        jb.append("deep doo ditt")
 
-        expect(list.head.data).to eq("deep doo ditt")
+        expect(jb.append("deep doo ditt")).to eq("deep doo ditt")
     end
 
     it "modifies data" do
-        list = JungleBeat.new
-        list.append("deep doo ditt")
+        jb = JungleBeat.new
+        jb.append("deep doo ditt")
 
-        expect(list.head.data).to eq("deep")
+        expect(jb.list.head.data).to eq("deep")
+        expect(jb.list.head.next_node.data).to eq("doo")
+    end
+
+    it "adds data" do
+        jb = JungleBeat.new
+        jb.append("woo hoo shu")
+
+        expect(jb.append("woo hoo shu")).to eq("woo hoo shu")
+    end
+
+    it "adds count" do
+        jb = JungleBeat.new
+
+        expect(jb.count).to eq(6)
     end
 end
