@@ -132,6 +132,46 @@ RSpec.describe LinkedList do
 
         expect(list.to_string).to eq("deep woo shi shu blop")
     end
+    it "finds and lists a string" do
+        list = LinkedList.new
+        list.append("deep")
+        list.append("woo")
+        list.append("shi")
+        list.append("shu")
+        list.append("blop")
+
+        expect(list.find(2, 1)).to eq("shi")
+    end
+    it "finds and modifies the list of strings" do
+        list = LinkedList.new
+        list.append("deep")
+        list.append("woo")
+        list.append("shi")
+        list.append("shu")
+        list.append("blop")
+
+        expect(list.find(1, 3)).to eq("woo shi shu")
+    end
+    it "adds a boolean method" do
+        list = LinkedList.new
+        list.append("deep")
+        list.append("woo")
+        list.append("shi")
+        list.append("shu")
+        list.append("blop")
+
+        expect(list.includes?("deep")).to eq(true)
+    end
+    it "checks for anothe string in array" do
+        list = LinkedList.new
+        list.append("deep")
+        list.append("woo")
+        list.append("shi")
+        list.append("shu")
+        list.append("blop")
+
+        expect(list.includes?("dep")).to eq(false)
+    end
 end
 
 
