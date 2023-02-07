@@ -95,8 +95,8 @@ class LinkedList
     end
 
     def pop
-        deleted_node = []
         current_node = @head
+        deleted_node = []
         previous_node = nil
         until current_node.next_node == nil
             previous_node = current_node
