@@ -121,6 +121,17 @@ RSpec.describe LinkedList do
         
         expect(list.to_string).to eq("dop woo plop suu")
     end
+    it "modifies a list" do
+        list = LinkedList.new
+        list.append("deep")
+        list.append("woo")
+        list.append("shi")
+        list.append("shu")
+        list.append("blop")
+        # require 'pry'; binding.pry
+
+        expect(list.to_string).to eq("deep woo shi shu blop")
+    end
 end
 
 
