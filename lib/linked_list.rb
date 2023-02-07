@@ -66,6 +66,7 @@ class LinkedList
         end
         new_node.data
     end
+
     def find(index, amount)
         current_node = @head
         string = []
@@ -80,11 +81,30 @@ class LinkedList
     # require 'pry'; binding.pry
     string.join(" ")
     end
-    def includes?(data)
+
+    def includes?(string)
         current_node = @head
-        string = [" "]
-        string.include?(" ")
-        until string.include?(" ")
+        while current_node.data != nil
+            if current_node.data == string
+                return true
+            else
+                return false
+            end
         end
+        # require 'pry'; binding.pry
+    end
+
+    def pop
+        deleted_node = []
+        current_node = @head
+        previous_node = nil
+        until current_node.next_node == nil
+            previous_node = current_node
+            current_node = current_node.next_node
+        end
+        deleted_node << current_node.data
+        previous_node.next_node = nil
+        current_node = previous_node.next_node
+        deleted_node.join
     end
 end
