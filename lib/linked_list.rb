@@ -1,9 +1,11 @@
 class LinkedList
     attr_reader :head,
-                :count
+                :count,
+                :index 
     def initialize
         @head = nil
         @count = 0
+        @index = 0
     end
     def append(data)
         current_node = @head
@@ -33,6 +35,7 @@ class LinkedList
         end
         to_string.join(" ")
     end
+
     def prepend(data)
         @count += 1
         if @head == nil
@@ -43,5 +46,24 @@ class LinkedList
             current_head.next_node = @head
             @head = current_head
         end
+    end
+
+    def insert(index, data)
+        current_node = @head
+        previous_node = nil
+
+        index.times do
+            previous_node = current_node
+        current_node = current_node.next_node
+        end
+        new_node = Node.new(data)
+        if @count == 0
+            @head = new_node
+        else
+            # require 'pry'; binding.pry
+            new_node.next_node = current_node
+            previous_node.next_node = new_node
+        end
+        new_node.data
     end
 end
