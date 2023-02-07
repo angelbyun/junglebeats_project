@@ -13,27 +13,27 @@ class LinkedList
         if @head == nil
             @head = Node.new(data)
         else
-            @head.next_node = Node.new(data)
-            current_node = current_node.next_node
-            while(!current_node.next_node.nil?)
-                current_node = current_node.next_node
+            new_node = @head
+            while(!new_node.next_node.nil?)
+                new_node = new_node.next_node
             end
+            new_node.next_node = Node.new(data)
         end
         data
     end
 
     def to_string
-        to_string = []
         if @head.nil?
-            to_string = []
+            return ""
         else
             current_node = @head
-            while(!current_node.nil?)
-                to_string << current_node.data
+            all_data = [current_node.data]
+            while !current_node.next_node.nil?
                 current_node = current_node.next_node
+                all_data << current_node.data
             end
         end
-        to_string.join(" ")
+        all_data.join(" ")
     end
 
     def prepend(data)
