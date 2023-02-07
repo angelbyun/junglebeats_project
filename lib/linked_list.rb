@@ -66,4 +66,23 @@ class LinkedList
         end
         new_node.data
     end
+    def find(index, amount)
+        current_node = @head
+        string = []
+        index.times do
+        current_node = current_node.next_node
+        # require 'pry'; binding.pry
+        end
+        amount.times do
+        string << current_node.data
+        current_node = current_node.next_node
+        end
+    # require 'pry'; binding.pry
+    string.join(" ")
+    end
+    def includes?(data)
+        current_node = @head
+        string = [" "]
+        string.include?(" ")
+    end
 end
