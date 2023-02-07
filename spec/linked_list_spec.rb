@@ -161,8 +161,9 @@ RSpec.describe LinkedList do
         list.append("blop")
 
         expect(list.includes?("deep")).to eq(true)
+        expect(list.includes?("dep")).to eq(false)
     end
-    it "checks for anothe string in array" do
+    it "can pop" do
         list = LinkedList.new
         list.append("deep")
         list.append("woo")
@@ -170,7 +171,20 @@ RSpec.describe LinkedList do
         list.append("shu")
         list.append("blop")
 
-        expect(list.includes?("dep")).to eq(false)
+        expect(list.pop).to eq("blop")
+        expect(list.to_string).to eq("deep woo shi shu")
+    end
+    it "can pop again" do
+        list = LinkedList.new
+        list.append("deep")
+        list.append("woo")
+        list.append("shi")
+        list.append("shu")
+        list.append("blop")
+        list.pop
+
+        expect(list.pop).to eq("shu")
+        expect(list.to_string).to eq("deep woo shi")
     end
 end
 
