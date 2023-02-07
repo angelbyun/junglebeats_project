@@ -84,5 +84,7 @@ class LinkedList
         current_node = @head
         string = [" "]
         string.include?(" ")
+        until string.include?(" ")
+        end
     end
 end
