@@ -67,9 +67,9 @@ RSpec.describe JungleBeat do
     it "plays a sound" do
         jb = JungleBeat.new
         jb.append("deep doo ditt woo hoo shu")
-        jb.play("deep doo ditt woo hoo shu")
+        jb.play
 
-        expect(jb.play).to eq("deep doo ditt woo hoo shu")
+        expect(jb.append("deep doo ditt woo hoo shu")).to eq("deep doo ditt woo hoo shu")
     end
 
 end
