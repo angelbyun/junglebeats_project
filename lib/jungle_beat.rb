@@ -18,5 +18,12 @@ class JungleBeat
         sounds.join(" ")
     end
 
-    def play(data)
+    def play
+        new_sound = list.head.data
+        next_sound = list.head
+        while new_sound != nil
+            next_sound = next_sound.next_node
+            `say -r 500 -v Alex #{new_sound}`
+        end
+    end
 end
